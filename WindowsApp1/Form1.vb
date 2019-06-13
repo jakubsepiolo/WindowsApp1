@@ -51,7 +51,7 @@ Public Class Form1
         Chart1.Series("plot1").ChartType = DataVisualization.Charting.SeriesChartType.Line
 
 
-        'Dim n As Integer = 720 ' number of points
+        Dim n As Integer = 720 ' number of points
 
         Dim y As Single
         'For x As Integer = -n To n Step 1
@@ -59,13 +59,13 @@ Public Class Form1
         '    Chart1.Series("plot1").Points.AddXY(x, y)
         'Next
 
-        'Chart1.Series.Add("plot2")
-        'Chart1.Series("plot2").Color = Color.Blue
-        'Chart1.Series("plot2").ChartType = DataVisualization.Charting.SeriesChartType.Line
-        'For x As Integer = 1 To n Step 1
-        '    y = Math.Sin((Math.PI * x) / 180)
-        '    Chart1.Series("plot2").Points.AddXY(x, y)
-        'Next
+        Chart1.Series.Add("plot2")
+        Chart1.Series("plot2").Color = Color.Blue
+        Chart1.Series("plot2").ChartType = DataVisualization.Charting.SeriesChartType.Line
+        For x As Integer = 0 To n Step 1
+            y = Math.Sin(x / Math.PI)
+            Chart1.Series("plot2").Points.AddXY(x, y * 10)
+        Next
 
         Chart1.Series.Add("plot3")
 
@@ -75,10 +75,10 @@ Public Class Form1
         Chart1.Series.Add("plot4")
         Chart1.Series("plot4").Color = Color.Gray
         Chart1.Series("plot4").ChartType = DataVisualization.Charting.SeriesChartType.Line
-        For x As Integer = -15625 To 15625 Step 1
-            y = Math.Sqrt(50 - (x / 625) ^ 2)
-            Chart1.Series("plot3").Points.AddXY((x / 625), y)
-            Chart1.Series("plot4").Points.AddXY((x / 625), -y)
+        For x As Single = -30 To 30 Step 0.015
+            y = Math.Sqrt(60 - x ^ 2)
+            Chart1.Series("plot3").Points.AddXY(x, y)
+            Chart1.Series("plot4").Points.AddXY(x, -y)
         Next
 
 
