@@ -37,13 +37,13 @@ Partial Class Form1
         Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(12, 16)
         Me.Chart1.Name = "Chart1"
-        Me.Chart1.Size = New System.Drawing.Size(1204, 594)
+        Me.Chart1.Size = New System.Drawing.Size(1448, 833)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "Chart1"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(953, 616)
+        Me.Button1.Location = New System.Drawing.Point(1360, 855)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 1
@@ -54,7 +54,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1228, 642)
+        Me.ClientSize = New System.Drawing.Size(1472, 890)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Chart1)
         Me.Name = "Form1"
