@@ -83,6 +83,8 @@ Public Class Form1
         Chart1.ChartAreas(0).CursorX.IsUserSelectionEnabled = True
         Chart1.ChartAreas(0).CursorY.IsUserSelectionEnabled = True
         Chart1.Annotations.Add(New Charting.CalloutAnnotation)
+
+
         With ChartArea1
 
             With .AxisX
@@ -109,12 +111,9 @@ Public Class Form1
             End With
         End With
         CreateCircle(Int(Rnd() * 10), Int(Rnd() * 10), 30)
-        CreateCircle(0, 16, 25)
+        CreateCircle(Int(Rnd() * 10), Int(Rnd() * 10), 30)
+        CreateCircle(Int(Rnd() * 10), Int(Rnd() * 10), 30)
         CreateLine(3, -5)
-        CreateQuadratic(3, 3, -15)
-        CreateQuadratic(-1, -5, 15)
-        CreateCubic(1, 0, 0, 0)
-
         Chart1.ChartAreas(0).AxisX.Maximum = Chart1.ChartAreas(0).AxisX.MaximumAutoSize
         Chart1.ChartAreas(0).AxisY.Maximum = Chart1.ChartAreas(0).AxisY.MaximumAutoSize
 
@@ -257,5 +256,44 @@ Public Class Form1
     End Sub
     Private Sub Chart1_Click_1(sender As Object, e As EventArgs) Handles Chart1.Click
 
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        Chart1.Titles.Add("Line of x^2") ' specify chart name
+        Chart1.ChartAreas.Clear()
+
+        Dim ChartArea1 As New Charting.ChartArea
+        ChartArea1 = Chart1.ChartAreas.Add("Default")
+        Chart1.ChartAreas(0).CursorX.IsUserSelectionEnabled = True
+        Chart1.ChartAreas(0).CursorY.IsUserSelectionEnabled = True
+        Chart1.Annotations.Add(New Charting.CalloutAnnotation)
+        With ChartArea1
+            With .AxisX
+                .IsReversed = False
+                .IsMarginVisible = True
+                .Minimum = 0
+                .Maximum = 360
+                .Interval = 45
+                .Crossing = 270
+            End With
+            With .AxisY
+
+                .Minimum = 0
+                .Maximum = 10
+                .Interval = 1
+            End With
+        End With
+        Chart1.Series.Add("Polar")
+        Chart1.Series("Polar").MarkerStyle = Charting.MarkerStyle.None
+        ' Chart1.Series("Polar").SetCustomProperty("PolarDrawingStyle", "Marker")
+        Chart1.Series("Polar").MarkerSize = 6
+        Chart1.Series("Polar").MarkerColor = Color.Teal
+        Chart1.Series("Polar").ChartType = Charting.SeriesChartType.Polar
+
+        For i = 0 To 2880 Step 5
+            Chart1.Series("Polar").Points.AddXY(i, Math.Sqrt(i) / 10)
+
+        Next
     End Sub
 End Class
